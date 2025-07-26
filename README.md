@@ -47,8 +47,3 @@ streamlit run app.py
 https://www.youtube.com/watch?v=G02QvKs20KE
 https://www.youtube.com/watch?v=GbMHAaB0uI0
 ```
-
-Let me know if you want anything else!
-
-[1] https://www.youtube.com/watch?v=G02QvKs20KE
-[2] https://www.youtube.com/watch?v=GbMHAaB0uI0
