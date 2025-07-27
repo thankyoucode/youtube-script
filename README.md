@@ -18,7 +18,7 @@ A simple Streamlit app to download YouTube videos, extract audio, and save trans
 git clone https://github.com/thankyoucode/youtube-script.git
 cd youtube-script
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run streamlit.py
 ```
 
 - Enter any YouTube link in the app and download what you need.

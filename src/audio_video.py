@@ -87,7 +87,7 @@ class AudioVideoDownloader:
         """
         a_fmt = option['format_id']
         ext = option['ext']
-        output_path = os.path.join(self.audio_dir, f"{self.title}_{option.get('abr')}kbps.{ext}")
+        output_path = os.path.join(self.audio_dir, f"{self.title}.{ext}")
         self._call_status("audio", "downloading")
         self._download_stream(a_fmt, output_path, stage="audio")
         self._call_status("audio", "completed")
@@ -106,7 +106,7 @@ class AudioVideoDownloader:
         audio_temp_path = os.path.join(self.temp_dir, f"{self.title}.audio.{ext_a}")
         output_path = os.path.join(
             self.video_dir,
-            f"{self.title}_{combination_option['height']}p_{combination_option['abr']}kbps.{ext_v}")
+            f"{self.title}.{ext_v}")
         self._call_status("video", "downloading")
         self._download_stream(v_fmt, video_temp_path, stage="video")
         self._call_status("video", "completed")
@@ -175,6 +175,12 @@ class AudioVideoDownloader:
             ]
             subprocess.run(cmd, check=True)
         t.join()
+        for f in (video_path, audio_path):
+            try:
+                os.remove(f)
+            except Exception:
+                pass
+        
 
     def _call_progress(self, stage, stats_dict):
         if self.progress_hook:
